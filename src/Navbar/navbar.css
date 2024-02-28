@@ -1,0 +1,65 @@
+.navbar-container {
+    display: flex;
+    margin-bottom:5%;
+}
+.navbar-container > div {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.navbar-logo {
+    width: 7%;
+    padding-left: 45px;
+}
+.navbar-logo img {
+    height: 100%;
+    width: 100%;
+}
+.navbar-search-bar {
+    width: 63%;
+}
+.navbar-search-bar input[type="text"] {
+    margin-top: 11px;
+    margin-left: 20px;
+    width: 20%;
+    margin-right: 2px;
+} 
+.navbar-navigation-list ul {
+    padding-left: 0;
+    display: flex;
+    margin: 0;
+}
+
+.nav-bar-username {
+    padding-right: 20px;
+}
+
+.nav-bar-username p {
+    margin-top: 11px;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.navbar-navigation-list li {
+    padding: 13px;
+    cursor: pointer;
+    border-right: solid 1px;
+}
+
+.navbar-navigation-list li:last-child {
+    border-right: none;
+}
+
+.navbar-navigation-list li:hover {
+    border: solid 1px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 10px; /* Optional: Add some spacing between items */
+}

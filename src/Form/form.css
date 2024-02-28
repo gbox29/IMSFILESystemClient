@@ -1,0 +1,21 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    gap: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    height: 25px;
+}
+
+label {
+    margin-top: 10px;
+}
+
+
+.form-field input{
+    width: 95%;
+}

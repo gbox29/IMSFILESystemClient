@@ -19,7 +19,7 @@ export default function LoginForm() {
     }
 
     const handleLogin = () => {
-        axios.get('http://localhost:8000/login', {
+        axios.get('//13.215.156.71:8000/login', {
             params: {
                 userId:userId,
                 password:password

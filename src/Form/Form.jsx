@@ -27,7 +27,7 @@ export default function Form() {
 
     useEffect(() => {
         const getResult = () => {
-            axios.get("http://localhost:8000/getDocuments/id", { params: { id: id } }).then((response) => {
+            axios.get("13.215.156.71:8000/getDocuments/id", { params: { id: id } }).then((response) => {
                 setData(response.data.result[0]);
             }).catch(error => {
                 console.error('AxiosError:', error);
@@ -64,7 +64,7 @@ export default function Form() {
     };
 
     const handleSave = (img) => {
-        axios.post('http://localhost:8000/', {
+        axios.post('http://13.215.156.71:8000/', {
             ...formData,
             url:data[0]?.url,
             img,

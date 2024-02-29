@@ -15,6 +15,8 @@ export default function Form() {
     const [image, takeScreenshot] = useScreenshot();
     const [data, setData] = useState([]);
 
+    console.log(data[0]);
+
     const [searchParams] = useSearchParams(
         {
             id: location?.state?.id,
@@ -27,7 +29,7 @@ export default function Form() {
 
     useEffect(() => {
         const getResult = () => {
-            axios.get("13.215.156.71:8000/getDocuments/id", { params: { id: id } }).then((response) => {
+            axios.get("https://imshrserver.ims.lol/getDocuments/id", { params: { id: id } }).then((response) => {
                 setData(response.data.result[0]);
             }).catch(error => {
                 console.error('AxiosError:', error);

@@ -6,6 +6,7 @@ import axios from 'axios';
 // import ap from "./Admin_programmer.pdf";
 
 export default function Render() {
+    axios.defaults.withCredentials = true;
     const location = useLocation();
     const [numPages, setNumPages] = useState();
     const [data, setData] = useState([]);

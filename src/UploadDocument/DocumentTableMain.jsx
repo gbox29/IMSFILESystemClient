@@ -32,7 +32,7 @@ export default function DocumentTableMain() {
 
     const handleSearch = () => {
         // Assuming sName and date are defined before this point
-        axios.get("//13.215.156.71:8000/getDocuments/search", {
+        axios.get("//13.215.156.71/getDocuments/search", {
             params: {
                 sName: sName,
                 date: date
@@ -47,7 +47,7 @@ export default function DocumentTableMain() {
     const handleDelete = (row_id) => {
         const result = window.confirm('Do you want to continue?');
         if (result) {
-            axios.delete("//13.215.156.71:8000/getDocuments", {
+            axios.delete("//13.215.156.71/getDocuments", {
                 params: {
                     id: row_id
                 }
@@ -65,7 +65,7 @@ export default function DocumentTableMain() {
 
     useEffect(() => {
         const getResult = () => {
-            axios.get("//13.215.156.71:8000/getDocuments").then((response) => {
+            axios.get("//13.215.156.71/getDocuments").then((response) => {
                 setData(response.data.result[0]);
             }).catch(error => {
                 console.error('AxiosError:', error);
@@ -78,7 +78,7 @@ export default function DocumentTableMain() {
         const formData = new FormData();
         formData.append('document', document);
         if (document) {
-            axios.post('//13.215.156.71:8000/upload', formData, {
+            axios.post('//13.215.156.71/upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

@@ -21,7 +21,7 @@ export default function Render() {
 
     useEffect(() => {
         const getResult = () => {
-            axios.get("//13.215.156.71:8000/getDocuments/id", {params:{id:id}}).then((response) => {
+            axios.get("//13.215.156.71/getDocuments/id", {params:{id:id}}).then((response) => {
                 setData(response.data.result[0]);
             }).catch(error => {
                 console.error('AxiosError:', error);

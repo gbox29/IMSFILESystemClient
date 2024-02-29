@@ -42,7 +42,7 @@ export default function Render() {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             {data[0]?.url}
-            <Document file={data[0]?.url} onLoadSuccess={onDocumentLoadSuccess}>
+            <Document file='https://pdf-lib.js.org/assets/with_update_sections.pdf' onLoadSuccess={onDocumentLoadSuccess}>
                 {Array.from({ length: numPages }, (_, i) => i + 1)
                     .map((page) => (
                         <Page key={page} pageNumber={page} renderTextLayer={false} renderAnnotationLayer={false} />

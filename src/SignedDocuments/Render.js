@@ -22,7 +22,7 @@ export default function Render() {
 
     useEffect(() => {
         const getResult = () => {
-            axios.get("https://imshrserver.ims.lol/getDocuments/id", {params:{id:id}}).then((response) => {
+            axios.get("https://imshrserver.ims.lol/getDocuments/id", { params: { id: id } }).then((response) => {
                 setData(response.data.result[0]);
             }).catch(error => {
                 console.error('AxiosError:', error);
@@ -38,10 +38,23 @@ export default function Render() {
         setNumPages(numPages);
     }
 
+    const handleButtonClick = (url) => {
+        // URL of the page you want to open in the new tab
+        const newTabUrl = url;
+
+        // Open a new tab with the specified URL
+        window.open(newTabUrl, 'PopupWindow', 'width=1000,height=1000');
+    };
+
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            {data[0]?.url}
+            <p
+                style={{ cursor: 'pointer', color: '#3498db', textDecoration: 'underline' }}
+                onClick={() => handleButtonClick(data[0]?.url)}
+            >
+                Click here to read the contract
+            </p>
             <Document file={data[0]?.url} onLoadSuccess={onDocumentLoadSuccess}>
                 {Array.from({ length: numPages }, (_, i) => i + 1)
                     .map((page) => (

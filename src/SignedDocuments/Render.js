@@ -33,7 +33,7 @@ export default function Render() {
     }, [id])
 
     console.log('docu');
-    console.log(data[0]);
+    console.log(data[0]?.url);
 
     function onDocumentLoadSuccess({ numPages, pdf }) {
         setNumPages(numPages);
@@ -43,7 +43,7 @@ export default function Render() {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             {data[0]?.url}
-            <Document file='https://pdf-lib.js.org/assets/with_update_sections.pdf' onLoadSuccess={onDocumentLoadSuccess}>
+            <Document file={data[0]?.url} onLoadSuccess={onDocumentLoadSuccess}>
                 {Array.from({ length: numPages }, (_, i) => i + 1)
                     .map((page) => (
                         <Page key={page} pageNumber={page} renderTextLayer={false} renderAnnotationLayer={false} />

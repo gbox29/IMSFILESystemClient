@@ -24,6 +24,8 @@ export default function Render() {
     useEffect(() => {
         const getResult = () => {
             axios.get("https://imshrserver.ims.lol/getDocuments/id", {params:{id:id}}).then((response) => {
+                console.log('response.data');
+                console.log(response.data);
                 setData(response.data.result[0]);
             }).catch(error => {
                 console.error('AxiosError:', error);

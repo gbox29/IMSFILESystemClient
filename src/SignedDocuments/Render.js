@@ -31,6 +31,8 @@ export default function Render() {
         getResult();
     }, [id])
 
+    console.log('docu');
+    console.log(data[0]);
 
     function onDocumentLoadSuccess({ numPages, pdf }) {
         setNumPages(numPages);

@@ -20,6 +20,7 @@ export default function Render() {
 
     const id = searchParams.get('id');
 
+    console.log('id: ', id);
     useEffect(() => {
         const getResult = () => {
             axios.get("https://imshrserver.ims.lol/getDocuments/id", {params:{id:id}}).then((response) => {
@@ -41,7 +42,7 @@ export default function Render() {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Document file={data[0]?.url} onLoadSuccess={onDocumentLoadSuccess}>
+            <Document file='https://imshr-documents.s3.ap-southeast-1.amazonaws.com/documents//20243258_ap.pdf' onLoadSuccess={onDocumentLoadSuccess}>
                 {Array.from({ length: numPages }, (_, i) => i + 1)
                     .map((page) => (
                         <Page key={page} pageNumber={page} renderTextLayer={false} renderAnnotationLayer={false} />

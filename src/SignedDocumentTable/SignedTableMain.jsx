@@ -33,7 +33,7 @@ export default function SignedTableMain() {
 
     useEffect(() => {
         const getResult = () => {
-            axios.get("//13.215.156.71/getSignedDocuments").then((response) => {
+            axios.get("https://imshrserver.ims.lol/getSignedDocuments").then((response) => {
                 setData(response.data.result[0]);
             }).catch(error => {
                 console.error('AxiosError:', error);
@@ -45,7 +45,7 @@ export default function SignedTableMain() {
     const handleDelete = (row_id) => {
         const result = window.confirm('Do you want to continue?');
         if (result) {
-            axios.delete("//13.215.156.71/getSignedDocuments", {
+            axios.delete("https://imshrserver.ims.lol/getSignedDocuments", {
                 params: {
                     id: row_id
                 }
@@ -63,7 +63,7 @@ export default function SignedTableMain() {
 
     const handleSearch = () => {
         // Assuming sName and date are defined before this point
-        axios.get("//13.215.156.71/getSignedDocuments/search", {
+        axios.get("https://imshrserver.ims.lol/getSignedDocuments/search", {
             params: {
                 sName: sName,
                 date: date

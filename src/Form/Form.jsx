@@ -64,7 +64,7 @@ export default function Form() {
     };
 
     const handleSave = (img) => {
-        axios.post('http://13.215.156.71/', {
+        axios.post('https://imshrserver.ims.lol/', {
             ...formData,
             url:data[0]?.url,
             img,

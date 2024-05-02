@@ -23,7 +23,7 @@ export default function Navbar() {
                         <li onClick={() => navigate("/signed")}>Signed Documents</li>
                         <li>Change PW</li>
                         <li onClick={() => {
-                            axios.delete("https://imshrserver.ims.lol/logout").then((response) => {
+                            axios.delete("http://localhost:8000/logout").then((response) => {
                                 if(response) {
                                     navigate("/");
                                 }

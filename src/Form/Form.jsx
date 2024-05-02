@@ -29,7 +29,7 @@ export default function Form() {
 
     useEffect(() => {
         const getResult = () => {
-            axios.get("https://imshrserver.ims.lol/getDocuments/id", { params: { id: id } }).then((response) => {
+            axios.get("http://localhost:8000/getDocuments/id/two", { params: { id: id } }).then((response) => {
                 setData(response.data.result[0]);
             }).catch(error => {
                 console.error('AxiosError:', error);
@@ -38,7 +38,7 @@ export default function Form() {
         getResult();
     }, [id])
 
-    console.log('data',data[0]?.fields);
+    console.log(data);
 
     useEffect(() => {
         const initialFormData = {};
@@ -66,7 +66,7 @@ export default function Form() {
     };
 
     const handleSave = (img) => {
-        axios.post('https://imshrserver.ims.lol/', {
+        axios.post('http://localhost:8000/', {
             ...formData,
             url:data[0]?.url,
             img,

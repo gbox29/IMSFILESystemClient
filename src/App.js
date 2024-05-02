@@ -4,6 +4,7 @@ import SignedDocuments from "./SignedDocuments/SignedDocuments";
 import Form from "./Form/Form";
 import DocumentTableMain from "./UploadDocument/DocumentTableMain";
 import Login from "./Auth/Login";
+import SignedContract from "./SignedContract/SignedDocuments";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/content" element={<SignedDocuments />} />
         <Route path="/form" element={<Form />} />
         <Route path="/documents" element={<DocumentTableMain />} /> 
+        <Route path="/contract" element={<SignedContract/>} />
       </Routes>
     </div>
   );

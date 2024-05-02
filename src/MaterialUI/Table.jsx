@@ -53,9 +53,15 @@ export default function ComponentTable({ columns, rows, handleDelete }) {
                         align={column.align}
                         style={{ cursor: 'pointer' }}
                         onClick={() => {
-                          if(column.id === 'name') {
+                          if(column.label === 'Document Name') {
                             navigate(`/content?id=${row.id}`, { state: { id: row.id } });
-                          } else if (column.id === 'id') {
+                          }
+                          
+                          if(column.label === 'Name') {
+                            navigate(`/contract?id=${row.id}`, { state: { id: row.id } });
+                          }
+
+                          if (column.id === 'id') {
                             handleDelete(row.id);
                           }
                         }}

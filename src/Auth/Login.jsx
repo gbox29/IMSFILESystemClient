@@ -19,7 +19,7 @@ export default function LoginForm() {
     }
 
     const handleLogin = () => {
-        axios.get('https://imshrserver.ims.lol/login', {
+        axios.get('http://localhost:8000/login', {
             params: {
                 userId:userId,
                 password:password

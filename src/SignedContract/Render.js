@@ -20,41 +20,17 @@ export default function Render() {
 
     const id = searchParams.get('id');
 
-    // useEffect(() => {
-    //     const getResult = async () => {
-    //         try {
-    //             const response = await axios.get("http://localhost:8000/getDocuments/id", {
-    //                 params: { id: id },
-    //                 responseType: 'arraybuffer' // Set the responseType to 'arraybuffer'
-    //             });
-    //             if (response.status === 200) {
-    //                 const blob = new Blob([response.data], { type: 'application/pdf' }); // Create a Blob from the array buffer
-    //                 const imageUrl = URL.createObjectURL(blob);
-    //                 setData(imageUrl);
-    //             } else {
-    //                 // Handle error
-    //             }
-    //         } catch (error) {
-    //             console.error('AxiosError:', error);
-    //         }
-    //     }
-    //     getResult();
-    // }, [id]);
-    
     useEffect(() => {
         const getResult = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/getDocuments/id", {
+                const response = await axios.get("http://localhost:8000/getContract/id", {
                     params: { id: id },
-                    responseType: 'arraybuffer'
+                    responseType: 'arraybuffer' // Set the responseType to 'arraybuffer'
                 });
                 if (response.status === 200) {
-                    console.log(response.headers);
-                    const contentType = await response.headers['content-type']; // Access headers like this
-                    console.log(contentType);
-                    const blob = new Blob([response.data], { type: contentType });
-                    const fileUrl = URL.createObjectURL(blob);
-                    setData(fileUrl);
+                    const blob = new Blob([response.data], { type: 'application/pdf' }); // Create a Blob from the array buffer
+                    const pdfUrl = URL.createObjectURL(blob);
+                    setData(pdfUrl);
                 } else {
                     // Handle error
                 }
@@ -64,6 +40,8 @@ export default function Render() {
         }
         getResult();
     }, [id]);
+    
+    console.log(data);
     
 
     function onDocumentLoadSuccess({ numPages, pdf }) {
@@ -78,7 +56,6 @@ export default function Render() {
         window.open(newTabUrl, 'PopupWindow', 'width=1000,height=1000');
     };
 
-
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <a href={data} download>download</a>
@@ -88,16 +65,16 @@ export default function Render() {
             >
                 Click here to read the contract
             </p>
-            <Document file={data} onLoadSuccess={onDocumentLoadSuccess}>
+            <Document file={data} onLoadSuccess={onDocumentLoadSuccess} noDataLength>
                 {Array.from({ length: numPages }, (_, i) => i + 1)
                     .map((page) => (
                         <Page key={page} pageNumber={page} renderTextLayer={false} renderAnnotationLayer={false} />
                     ))}
             </Document>
             <div style={{ marginTop: '10px' }}>
-                <button onClick={() => {
+                {/* <button onClick={() => {
                     navigate(`/form?id=${id}`, { state: { id: id } });
-                }}>Click here to sign</button>
+                }}>Click here to sign</button> */}
             </div>
         </div>
     );
